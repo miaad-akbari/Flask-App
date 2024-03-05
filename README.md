@@ -5,64 +5,62 @@ This project contains temperature and humidity information of a city written
 data from the json file and stores it in the database.
 And in two types of container and orchestration infrastructure.
 
-##Run app with python 
+## Run App With Python 
+1. git clone  git@github.com:miaad-akbari/Flask-App.git
+
+2. pip install -r requirements.txt
+
+3. python3 app.py
+
+4. curl http://localhost:5000/tehran
 
 
-#2 
-run with python appplication
+## Run App With Docker
 
-`python app.py`
+1. git clone  git@github.com:miaad-akbari/Flask-App.git
 
-curl http://127.0.0.1:5000/tehran
+2. docker build -t my-app:0.1.0 .
+
+3. docker tag my-app:0.1.0 registry/my-app:0.1.0
+
+4. docker push registry/my-app:0.1.0
+
+5. docker run -d --namee app-flask -p 5000:5000  registry/my-app:0.1.0
+
+6. docker ps
+
+7. docker logs -f app-flask
+
+8. curl http://localhost:5000/tehran
+
+## Run App K8S (helm)
+
+1. git clone  git@github.com:miaad-akbari/Flask-App.git
+
+2. helm create helm
+
+3. change file value.yaml and deployment.yaml and service.yaml
+
+4. cp template/deployment.yaml ../  && cp template/service.yaml
+
+5. helm package .
+
+6. helm install helm ./helm-package.tgz:0.1.0 -f value.yaml
+
+7. kubectl get all
 
 
-#3  docker
+## Run App With K8S (manifest)
 
-for run docker and build new image
+1. git clone  git@github.com:miaad-akbari/Flask-App.git
 
-`docker build -t my-app:0.1.0 .`
+2. cd manifest/
 
-`docker run -d --name my-container -p 5000:5000 my-app:0.1.0`
+3. kubectl create ns app
 
-`docker tag my-app:0.1.0 my.registry/my-app:0.1.0`
+4. kubectl apply -f full-dep.yaml -n app
 
-`docker push my.registry/my-app:0.1.0`
+5. kubectl get pv,pvc -n app
 
-
-# test with docker 
-
-`docker ps`
-
-curl http://ip-node:5000/tehran
-
-
-============================================
-# k8s
-
- **helm**
-
-`helm create helm`
-
-change files value.yaml and /template/deployment.yaml   and template/pv.yaml and pvc.yaml 
-cp /template/deployment.yaml and template/pv.yaml pvc.yaml  .
-
-`rm -rf template`
-
-`ls -la`
-
-value.yaml deployment.yaml pv.yaml pvc.yaml Chart.yaml
-
-`helm package . `
-
-`helm install helm ./helm-package.tgz:0.1.0 -f value.yaml`
-
-`kubectl get pods -n default`
-
-=======================================
-
-**manifest**
-
-in path /afra-ch/manifest/full-dep.yaml
-
-`kubectl apply -f full-dep.yaml`
+6. kubectl get po -n app
 
