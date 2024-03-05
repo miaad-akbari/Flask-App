@@ -1,10 +1,12 @@
-**City** and temperature and humidity registration project
+City and temperature and humidity registration project
 
-This project contains the information of Tehran city in the form of json, and the program reads the data from the json file and stores it in the database.
+This project contains temperature and humidity information of a city written
+ in Batflask and displayed to the user as json. This program reads the 
+data from the json file and stores it in the database.
+And in two types of container and orchestration infrastructure.
 
+##Run app with python 
 
-#1
-`git pull`
 
 #2 
 run with python appplication
