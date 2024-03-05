@@ -1,0 +1,9 @@
+{
+  "cities": [
+    {
+      "name": "Tehran",
+      "temperature": 25.6,
+      "humidity": 63.2
+    }
+  ]
+}

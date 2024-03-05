@@ -1,0 +1,18 @@
+image:
+  repository: image_repo
+  tag: 0.1.0
+
+resources:
+  limits:
+    cpu: "0.5"
+    memory: "512Mi"
+  requests:
+    cpu: "0.2"
+    memory: "256Mi"
+
+persistence:
+  enabled: true
+  existingClaim: app
+
+service:
+  type: LoadBalancer
