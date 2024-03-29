@@ -63,4 +63,7 @@ And in two types of container and orchestration infrastructure.
 5. kubectl get pv,pvc -n app
 
 6. kubectl get po -n app
+ 
+7. kubectl get svc -n app  && kubectl get svc -n app -o wide
+
 
