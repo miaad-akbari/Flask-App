@@ -1,4 +1,4 @@
-FROM  hosted.dc.afranet.co/python:3.9-slim-buster
+FROM python:3.9-slim-buster
 
 WORKDIR /app
 
